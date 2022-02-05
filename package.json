@@ -4,8 +4,8 @@
   "description": "a quick random gradient generator for your next big project",
   "default": "script.js",
   "scripts": {
-    "dev": "parcel src/pug/base.pug",
-    "build": "parcel build src/pug/base.pug"
+    "dev": "parcel src/pug/index.pug",
+    "build": "parcel build src/pug/index.pug"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "keywords": [
