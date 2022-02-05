@@ -1,0 +1,24 @@
+header.header
+      p.header__name xgradients
+
+      .header__menu 
+        button.header__menu-button(arai-label='menu button', title='toggle menu'): svg.header__menu-icon(viewBox='0 0 24 24')
+          path(d='M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,10.5A1.5,1.5 0 0,1 13.5,12A1.5,1.5 0 0,1 12,13.5A1.5,1.5 0 0,1 10.5,12A1.5,1.5 0 0,1 12,10.5M7.5,10.5A1.5,1.5 0 0,1 9,12A1.5,1.5 0 0,1 7.5,13.5A1.5,1.5 0 0,1 6,12A1.5,1.5 0 0,1 7.5,10.5M16.5,10.5A1.5,1.5 0 0,1 18,12A1.5,1.5 0 0,1 16.5,13.5A1.5,1.5 0 0,1 15,12A1.5,1.5 0 0,1 16.5,10.5Z')
+        nav.header__nav.header__nav--hidden
+          a.header__nav-link.link__collection(href="#") collection
+          a.header__nav-link.link__about(href="#") about
+          input#theme-switcher.theme-switcher__input(
+            type="checkbox",
+            name="toggler"
+          )
+          label.theme-switcher.theme-switcher__label(for="theme-switcher", title='change theme') 
+            svg.theme-switcher__icon(
+              aria-hidden="true",
+              focusable="false",
+              role="img",
+              xmlns="http://www.w3.org/2000/svg",
+              viewBox="0 0 512 512"
+            )
+              path(
+                d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 448V64c105.9 0 192 86.13 192 192S361.9 448 256 448z"
+              )

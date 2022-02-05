@@ -1,0 +1,54 @@
+@use 'abstracts' as helper;
+
+////////// 2. BASE //////////
+// FONTS
+
+@font-face {
+  font-family: 'quite magical';
+  src: url(../fonts/quite-magical.ttf);
+  font-display: swap;
+}
+@font-face {
+  font-family: 'nunito';
+  src: url(../fonts/nunito-regular.ttf);
+  font-weight: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'nunito';
+  src: url(../fonts/nunito-bold.ttf);
+  font-weight: bold;
+  font-display: swap;
+}
+
+// BASIC RESET
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+
+  @include helper.bp(bp-750) {
+    font-size: 58%;
+  }
+  @include helper.bp(bp-270) {
+    font-size: 52%;
+  }
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+body {
+  box-sizing: border-box;
+}
+
+// DECLARING CSS VARS
+:root {
+  @include helper.get-misc-vars;
+  @include helper.get-themed-vars(light);
+}
+:root[data-theme='dark'] {
+  @include helper.get-themed-vars(dark);
+}

@@ -1,0 +1,47 @@
+section.section.selector.section-hidden
+  button.selector__change.button.button__change(
+    data-tooltip="new gradient"
+  ) 
+    svg.button__icon(viewBox="0 0 512 512", width="100", title="create new gradient")
+      path(
+        d="M224 96l16-32 32-16-32-16-16-32-16 32-32 16 32 16 16 32zM80 160l26.66-53.33L160 80l-53.34-26.67L80 0 53.34 53.33 0 80l53.34 26.67L80 160zm352 128l-26.66 53.33L352 368l53.34 26.67L432 448l26.66-53.33L512 368l-53.34-26.67L432 288zm70.62-193.77L417.77 9.38C411.53 3.12 403.34 0 395.15 0c-8.19 0-16.38 3.12-22.63 9.38L9.38 372.52c-12.5 12.5-12.5 32.76 0 45.25l84.85 84.85c6.25 6.25 14.44 9.37 22.62 9.37 8.19 0 16.38-3.12 22.63-9.37l363.14-363.15c12.5-12.48 12.5-32.75 0-45.24zM359.45 203.46l-50.91-50.91 86.6-86.6 50.91 50.91-86.6 86.6z"
+      )
+    span.button__text New Gradient
+  button.selector__copy.button.button__copy(data-tooltip="copy CSS") 
+    svg.button__icon(viewBox="0 0 448 512", width="100", title="copy")
+      path(
+        d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"
+      )
+    span.button__text Copy CSS
+
+ 
+  button.selector__bookmark.bookmark(aria-label='bookmark this gradient', title='bookmark this gradient')
+    svg.bookmark__icon(viewBox='0 0 24 24')
+      path(d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z")
+section.section.collection.section--hidden
+  button.collection__button-close &times;
+  .collection__wrapper
+    .collection__cards
+      .collection__text add some bookmarks first
+      //-  each num in [1,2,3,4,5,6,7,8] 
+        .collection__card
+
+section.section.about.section--hidden 
+  button.about__button-close &times;
+  .about__container
+    h1.about__heading-main xgradients
+    p.about__one-liner A random gradient generator to give you inspiration for your next big project.
+    .about__misc
+      .about__group 
+        h2.about__heading Got any suggestions or feedback?
+        p.about__text reach me via&nbsp;
+          a.about__link(href="http://matrix.to/#/@ninal:matrix.org") matrix
+          |  or&nbsp;
+          a.about__link(href="mailto:someone@pm.me") email 
+      .about__group 
+        h2.about__heading Interesed in source code?
+        p.about__text 
+          a.about__link(href="https://github.com/zyachel/") here
+          |  you go :)
+    p.about__license licensed under&nbsp;
+      a.about__link(href="https://www.gnu.org/licenses/agpl-3.0-standalone.html") GNU AGPLv3

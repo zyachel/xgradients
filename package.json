@@ -1,0 +1,29 @@
+{
+  "name": "xgradients",
+  "version": "1.0.0",
+  "description": "a quick random gradient generator for your next big project",
+  "default": "script.js",
+  "scripts": {
+    "parcel:dev": "parcel src/pug/base.pug",
+    "parcel:build": "parcel build src/pug/base.pug",
+    "robots": "mkdir -p dist/ && cp src/misc/robots.txt dist/robots.txt",
+    "dev": "(pnpm robots) && (pnpm parcel:dev)",
+    "build": "(pnpm robots) && (pnpm parcel:build)"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "keywords": [
+    "gradient",
+    "random"
+  ],
+  "author": "zyachel",
+  "license": "AGPL-3.0-or-later",
+  "devDependencies": {
+    "@parcel/transformer-pug": "^2.2.1",
+    "@parcel/transformer-sass": "^2.2.1",
+    "parcel": "^2.2.1"
+  },
+  "dependencies": {
+    "@swc/helpers": "^0.3.2",
+    "regenerator-runtime": "^0.13.9"
+  }
+}

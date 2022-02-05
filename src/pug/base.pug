@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="description", content="A random gradient generator to give you inspiration for your next big project.")
+    link(rel="icon", href="../misc/favicons/favicon.svg", type="image/svg+xml")
+    link(rel="icon", href="../misc/favicons/favicon.png", type="image/png")
+    link(rel="stylesheet", href="../sass/main.scss")
+    script(src="../js/script.js", type='module', defer) 
+    title xgradients | create random gradients
+  body.body 
+    include _header
+    
+    main.main
+      include _sections
+    
+    .modal.modal--hidden
+      .modal__content
+        button.modal__button-close &times;
+        h3.modal__heading.modal__heading--error error while copying! please copy the code manually.
+        pre.modal__text.code__wrapper: code.code background-image: linear-gradient(rgb(224, 234, 252), rgb(207, 222, 243));

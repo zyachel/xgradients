@@ -1,0 +1,162 @@
+@use 'sass:math';
+@use 'abstracts' as helper;
+
+// the one above tooltip, essentially ::before
+$arrow-height: 8px;
+
+////////// 4. COMPONENTS //////////
+
+.button {
+  border: none;
+  cursor: pointer;
+  padding: 1.5rem 3rem;
+  display: grid;
+  place-items: center;
+  grid-auto-flow: column;
+  gap: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--button-shadow);
+  background: var(--button-bg);
+  color: var(--button-text);
+  font-size: var(--fs-180);
+
+  transition: all 200ms ease;
+
+  &__icon {
+    height: 1.2em;
+    width: 1.2em;
+    fill: currentColor;
+  }
+
+  &:hover {
+    // color: var(--button-hover);
+    transform: translateY(-3px);
+
+    box-shadow: var(--button-shadow-hover);
+  }
+
+  &:active {
+    color: var(--button-hover);
+    transform: translateY(-1px);
+
+    box-shadow: var(--button-shadow-active);
+  }
+
+  @include helper.bp(bp-900) {
+    font-size: var(--fs-160);
+  }
+  @include helper.bp(bp-650) {
+    font-size: var(--fs-140);
+    gap: 1rem;
+    padding: 1.5rem 2.5rem;
+  }
+  @include helper.bp(bp-500) {
+    // font-size: var(--fs-120);
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+  }
+  @include helper.bp(bp-350) {
+    padding: 1rem;
+  }
+}
+
+.bookmark {
+  border-radius: 0.5rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 200ms ease;
+
+  &__icon {
+    fill: none;
+    stroke: var(--bookmark-icon);
+    stroke-width: 2;
+    height: 4.5rem;
+    width: 4.5rem;
+    filter: var(--bookmark-shadow);
+    transition: all 200ms ease;
+
+    @include helper.bp(bp-900) {
+      height: 4rem;
+      width: 4rem;
+    }
+    @include helper.bp(bp-500) {
+      height: 3.5rem;
+      width: 3.5rem;
+    }
+  }
+
+  &--active &__icon {
+    fill: var(--bookmark-icon-active);
+    stroke-width: 1.2;
+  }
+}
+
+.theme-switcher {
+  // vars for switcher dimensions
+  --rot-unchecked: -180deg;
+  --rot-checked: 180deg;
+  --toggle-width: 4rem;
+  --toggle-gap: 0.5rem;
+  --toggle-height: calc(var(--toggle-width) / 2);
+  --toggle-icon-side: calc(var(--toggle-height) - 2 * var(--toggle-gap));
+
+  &__input {
+    position: absolute;
+    right: 0;
+    top: 0;
+    clip-path: circle(0.001px);
+    z-index: -1;
+  }
+
+  &__label {
+    position: relative;
+    height: var(--toggle-height);
+    width: var(--toggle-width);
+    background: var(--toggle);
+    border-radius: var(--toggle-height);
+    // padding: var(--toggle-gap);
+    cursor: pointer;
+  }
+
+  &__icon {
+    position: absolute;
+    height: var(--toggle-icon-side);
+    width: var(--toggle-icon-side);
+    top: var(--toggle-gap);
+    left: var(--toggle-gap);
+
+    fill: var(--toggle-icon);
+    transform: rotateZ(var(--rot-unchecked));
+
+    transition: all 0.2s ease;
+  }
+
+  &__input:checked ~ &__label &__icon {
+    transform: rotateZ(var(--rot-checked));
+    left: calc(50% + var(--toggle-gap));
+  }
+  &__input:focus-visible ~ &__label {
+    outline: 2px solid currentColor;
+    outline-offset: 5px;
+  }
+
+  @include helper.bp(bp-400) {
+    // --toggle-width: 4rem;
+  }
+}
+
+// FOR KEYBOARD NAVIGATION
+:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}

@@ -1,0 +1,229 @@
+@use 'sass:color';
+@use 'sass:map';
+@use 'sass:meta';
+
+////////// 1. ABSTRACTS //////////
+//---- 1.1 VARIABLES ----//
+// GENERAL VARIABLES:
+$clr-primary: #0c2461;
+$clr-secondary: #333;
+$grad-brand-light: linear-gradient(to right bottom, #e49b9e, rgb(164, 42, 119));
+$grad-brand-dark: linear-gradient(
+  to right bottom,
+  rgb(197, 119, 52),
+  rgb(183, 20, 85)
+);
+
+// SPECIFIC VARIABLES:
+$themed-vars: (
+  body-bg: (
+    light: $grad-brand-light,
+    dark: $grad-brand-dark,
+  ),
+  body-text: (
+    light: $clr-secondary,
+    dark: color.scale($clr-secondary, $lightness: 100%),
+  ),
+  header-bg: (
+    light: color.scale($clr-secondary, $lightness: 100%),
+    dark: color.scale($clr-primary, $lightness: -70%),
+  ),
+  header-name: (
+    light: $grad-brand-light,
+    dark: $grad-brand-dark,
+  ),
+  header-link: (
+    light: $clr-primary,
+    dark: color.scale($clr-primary, $lightness: 90%),
+  ),
+  header-link-hover: (
+    light: color.scale($clr-primary, $lightness: 30%),
+    dark: color.scale($clr-primary, $lightness: 70%),
+  ),
+  header-menu-icon: (
+    light: $clr-primary,
+    dark: color.scale($clr-primary, $lightness: 90%),
+  ),
+  header-menu-bg: (
+    light: color.scale($clr-secondary, $lightness: 100%),
+    dark: color.scale($clr-primary, $lightness: -70%),
+  ),
+  toggle: (
+    light: color.scale($clr-secondary, $lightness: 80%),
+    // dark: color.scale($clr-primary, $lightness: 80%),
+    dark: color.scale($clr-secondary, $lightness: 15%, $saturation: 65%),
+  ),
+  toggle-icon: (
+    light: $clr-secondary,
+    // dark: color.scale($clr-primary, $lightness: 5%),
+    dark: color.scale($clr-secondary, $lightness: 90%),
+  ),
+  button-bg: (
+    light: color.scale($clr-secondary, $lightness: 90%),
+    dark: color.scale($clr-primary, $lightness: -70%),
+  ),
+  button-text: (
+    light: color.scale($clr-primary, $lightness: -50%),
+    dark: color.scale($clr-secondary, $lightness: 100%),
+  ),
+  button-shadow: (
+    light: 3px 3px 3px rgba(#000, 0.5),
+    dark: 3px 3px 3px rgba(#000, 0.5),
+  ),
+  button-shadow-hover: (
+    light: 0.5rem 0.5rem 0.5rem rgba(#000, 0.5),
+    dark: 0.5rem 0.5rem 0.5rem rgba(#000, 0.5),
+  ),
+  button-shadow-active: (
+    light: 0.3rem 0.3rem 0.3rem rgba(#000, 0.8),
+    dark: 0.3rem 0.3rem 0.3rem rgba(#000, 0.8),
+  ),
+  bookmark-icon: (
+    light: color.scale($clr-secondary, $lightness: 100%),
+    dark: color.scale($clr-primary, $lightness: -30%),
+  ),
+  bookmark-icon-active: (
+    light: red,
+    dark: red,
+  ),
+  bookmark-shadow: (
+    light: drop-shadow(1px 1px 1rem rgba(#000, 1)),
+    dark: drop-shadow(1px 1px 1rem rgba(#000, 1)),
+  ),
+  overlay: (
+    light: rgba(#000, 0.6),
+    dark: rgba(#000, 0.5),
+  ),
+  modal-bg: (
+    light: color.scale($clr-secondary, $lightness: 90%),
+    dark: color.scale($clr-primary, $lightness: -70%),
+  ),
+  modal-heading: (
+    light: color.scale($clr-primary, $lightness: -30%),
+    dark: color.scale($clr-primary, $lightness: 90%),
+  ),
+  modal-text: (
+    light: color.scale($clr-secondary, $lightness: -40%),
+    dark: color.scale($clr-secondary, $lightness: 45%),
+  ),
+  code-bg: (
+    light: color.scale($clr-secondary, $lightness: 60%),
+    dark: color.scale($clr-secondary, $lightness: -40%),
+  ),
+  collection-bg: (
+    light: rgba(color.scale($clr-secondary, $lightness: 100%), 0.65),
+    dark: rgba(color.scale($clr-secondary, $lightness: -100%), 0.75),
+  ),
+  collection-text-bg: (
+    light: rgba(color.scale($clr-secondary, $lightness: 100%), 0.4),
+    dark: rgba(color.scale($clr-secondary, $lightness: -100%), 0.5),
+  ),
+  collection-text: (
+    light: color.scale($clr-secondary, $lightness: -100%),
+    dark: color.scale($clr-secondary, $lightness: 100%),
+  ),
+  about-bg: (
+    light: rgba(color.scale($clr-secondary, $lightness: 100%), 0.65),
+    dark: rgba(color.scale($clr-secondary, $lightness: -100%), 0.8),
+  ),
+  about-heading-1: (
+    light: $grad-brand-light,
+    dark: $grad-brand-dark,
+  ),
+  about-heading-2: (
+    light: color.scale($clr-primary, $lightness: -50%),
+    dark: color.scale($clr-secondary, $lightness: 90%),
+  ),
+  about-text: (
+    light: $clr-secondary,
+    dark: color.scale($clr-secondary, $lightness: 65%),
+  ),
+  about-link: (
+    light: color.scale($clr-primary, $lightness: 10%),
+    dark: color.scale($clr-primary, $lightness: 75%),
+  ),
+  about-link-hover: (
+    light: color.scale($clr-primary, $lightness: 30%),
+    dark: color.scale($clr-primary, $lightness: 60%),
+  ),
+);
+
+$misc-vars: (
+  ff-primary: (
+    'quite magical',
+    cursive,
+  ),
+  ff-base: (
+    'nunito',
+    sans-serif,
+  ),
+  fs-100: 1rem,
+  fs-120: 1.2rem,
+  fs-140: 1.4rem,
+  fs-160: 1.6rem,
+  fs-180: 1.8rem,
+  fs-200: 2rem,
+  fs-220: 2.2rem,
+  fs-250: 2.5rem,
+  fs-300: 3rem,
+  fs-400: 4rem,
+  fs-450: 4.5rem,
+  fs-500: 5rem,
+  fs-700: 7rem,
+  fs-800: 8rem,
+  fs-900: 9rem,
+  fs-1200: 12rem,
+);
+
+// misc vars
+
+//------ 1.2 MIXINS ------//
+// MAKING CSS VARS
+@mixin get-themed-vars($theme) {
+  @each $var, $vals in $themed-vars {
+    --#{$var}: #{map-get($vals, $theme)};
+  }
+}
+
+@mixin get-misc-vars {
+  @each $var, $val in $misc-vars {
+    --#{$var}: #{$val};
+  }
+}
+
+// MEDIA QUERY MANAGER
+// 1. DEFINING BREAKPOINTS:
+$breakpoints: (
+  bp-1050: 1050px,
+  bp-900: 900px,
+  bp-750: 750px,
+  bp-650: 650px,
+  bp-500: 500px,
+  bp-400: 400px,
+  bp-350: 350px,
+  bp-300: 300px,
+  bp-270: 270px,
+);
+
+// DEFINING MIXIN FOR HANDLING BREAKPOINTS:
+@mixin bp($given-breakpoint) {
+  $breakpoint: $given-breakpoint;
+
+  // changing our $breakpoint var to the one obtained from map in case it exits
+  @if (map.has-key($breakpoints, $breakpoint)) {
+    $breakpoint: map.get($breakpoints, $breakpoint);
+
+    // if a breakpoint is directly specified(eg: 600px), using it but warning nonetheless
+  } @else if (meta.type-of($breakpoint) == number) {
+    @warn 'unknown breakpoint: #{$breakpoint}. please add it to the breakpoints map!';
+
+    // else throwing an error
+  } @else {
+    @error 'given breakpoint(#{$breakpoint}) is neither in breakpoints map nor is it of type number!';
+  }
+
+  // here goes the content
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
