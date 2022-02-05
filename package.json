@@ -8,7 +8,8 @@
     "parcel:build": "parcel build src/pug/base.pug",
     "robots": "mkdir -p dist/ && cp src/misc/robots.txt dist/robots.txt",
     "dev": "(pnpm robots) && (pnpm parcel:dev)",
-    "build": "(pnpm robots) && (pnpm parcel:build)"
+    "build:dev": "(pnpm robots) && (pnpm parcel:build)",
+    "build": "(npm run robots) && (npm run parcel:build)"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "keywords": [
