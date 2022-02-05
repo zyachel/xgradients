@@ -4,12 +4,8 @@
   "description": "a quick random gradient generator for your next big project",
   "default": "script.js",
   "scripts": {
-    "parcel:dev": "parcel src/pug/base.pug",
-    "parcel:build": "parcel build src/pug/base.pug",
-    "robots": "mkdir -p dist/ && cp src/misc/robots.txt dist/robots.txt",
-    "dev": "(pnpm robots) && (pnpm parcel:dev)",
-    "build:dev": "(pnpm robots) && (pnpm parcel:build)",
-    "build": "(npm run robots) && (npm run parcel:build)"
+    "dev": "parcel src/pug/base.pug",
+    "build": "parcel build src/pug/base.pug"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "keywords": [
