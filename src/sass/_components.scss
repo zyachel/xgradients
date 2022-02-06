@@ -51,12 +51,15 @@ $arrow-height: 8px;
     padding: 1.5rem 2.5rem;
   }
   @include helper.bp(bp-500) {
+    font-size: var(--fs-160);
+
+    // place-self: center;
     // font-size: var(--fs-120);
-    gap: 0.5rem;
-    padding: 1rem 2rem;
+    gap: 1.5rem;
+    padding: 1.5rem 3rem;
   }
   @include helper.bp(bp-350) {
-    padding: 1rem;
+    // padding: 1.2rem;
   }
 }
 
@@ -77,12 +80,12 @@ $arrow-height: 8px;
     transition: all 200ms ease;
 
     @include helper.bp(bp-900) {
-      height: 4rem;
-      width: 4rem;
+      //   height: 4rem;
+      //   width: 4rem;
     }
     @include helper.bp(bp-500) {
-      height: 3.5rem;
-      width: 3.5rem;
+      // height: 3.5rem;
+      // width: 3.5rem;
     }
   }
 
@@ -141,8 +144,8 @@ $arrow-height: 8px;
     outline-offset: 5px;
   }
 
-  @include helper.bp(bp-400) {
-    // --toggle-width: 4rem;
+  @include helper.bp(bp-500) {
+    --toggle-width: 5rem;
   }
 }
 

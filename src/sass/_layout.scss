@@ -18,11 +18,8 @@
 .main {
   height: calc(100vh - 8rem);
 
-  @include helper.bp(bp-900) {
-    height: calc(100vh - 6.5rem);
-  }
-  @include helper.bp(bp-650) {
-    height: calc(100vh - 6rem);
+  @include helper.bp(bp-500) {
+    height: calc(100vh - 7rem);
   }
 }
 
@@ -45,13 +42,6 @@
     -webkit-background-clip: text;
     font-family: var(--ff-primary);
     font-size: var(--fs-500);
-
-    @include helper.bp(bp-900) {
-      font-size: var(--fs-450);
-    }
-    @include helper.bp(bp-650) {
-      font-size: var(--fs-400);
-    }
   }
 
   &__menu {
@@ -77,8 +67,8 @@
   }
 
   &__menu-icon {
-    height: 3rem;
-    width: 3rem;
+    height: 4rem;
+    width: 4rem;
     fill: var(--header-menu-icon);
     // background-color: var(--toggle);
   }
@@ -92,9 +82,9 @@
       position: absolute;
       flex-direction: column;
       background-color: var(--header-menu-bg);
-      top: 165%;
-      right: -80%;
-      padding: 2rem;
+      top: 160%;
+      right: -70%;
+      padding: 2.5rem;
       border-radius: 0.5rem;
       z-index: 1;
       // justify-items: center;
@@ -130,11 +120,9 @@
       border-bottom: 2px solid currentColor;
     }
 
-    @include helper.bp(bp-650) {
-      font-size: var(--fs-120);
-    }
     @include helper.bp(bp-500) {
-      margin: 0 0 1.5rem 0;
+      font-size: var(--fs-160);
+      margin: 0 0 2.5rem 0;
     }
     @include helper.bp(bp-350) {
       // font-size: var(--fs-100);
@@ -142,10 +130,10 @@
   }
 
   @include helper.bp(bp-900) {
-    padding: 1rem 3rem;
+    padding: 1.5rem 3rem;
   }
-  @include helper.bp(bp-650) {
-    padding: 1rem 3rem;
+  @include helper.bp(bp-500) {
+    padding: 1rem 4rem;
   }
 }
 
@@ -163,11 +151,24 @@
 
   &__change {
     place-self: start;
+
+    @include helper.bp(bp-500) {
+      grid-row: 2 / span 1;
+      grid-column: 1 / -1;
+      place-self: start;
+      // justify-self: stretch;
+    }
   }
 
   &__copy {
     justify-self: end;
     align-self: start;
+
+    @include helper.bp(bp-500) {
+      grid-row: -2 / span 1;
+      place-self: start;
+      // justify-self: stretch;
+    }
   }
 
   &__bookmark {
@@ -175,15 +176,25 @@
     place-self: end;
     display: grid;
     place-content: center;
+
+    @include helper.bp(bp-500) {
+      grid-row: -2 / span 1;
+      // grid-column: 1 / 2;
+      place-self: center;
+    }
   }
 
   @include helper.bp(bp-650) {
     padding: 3rem;
   }
   @include helper.bp(bp-500) {
-    padding: 2rem;
+    padding: 4rem;
+    // grid-template-columns: auto;
+    grid-template-rows: 1fr repeat(3, max-content);
+    gap: 2rem;
   }
   @include helper.bp(bp-350) {
+    padding: 2rem;
     // padding: 1.5rem;
   }
 
@@ -208,6 +219,8 @@
   height: 100%;
   visibility: visible;
 
+  transition: all 200ms ease;
+
   &__button-close {
     background-color: transparent;
     border: none;
@@ -217,13 +230,6 @@
     font-weight: 900;
     color: var(--collection-text);
     cursor: pointer;
-
-    @include helper.bp(bp-750) {
-      font-size: var(--fs-220);
-    }
-    @include helper.bp(bp-500) {
-      font-size: var(--fs-200);
-    }
   }
 
   &__wrapper {
@@ -232,7 +238,7 @@
     overflow-x: hidden;
     padding: 2rem;
 
-    @include helper.bp(bp-400) {
+    @include helper.bp(bp-500) {
       padding: 0 1rem;
     }
   }
@@ -248,7 +254,7 @@
     @include helper.bp(bp-650) {
       gap: 4rem;
     }
-    @include helper.bp(bp-400) {
+    @include helper.bp(bp-500) {
       padding: 1rem;
       gap: 3rem;
     }
@@ -311,8 +317,8 @@
       flex: 1 1 12rem;
     }
     @include helper.bp(bp-350) {
-      height: 10rem;
-      flex: 1 1 10rem;
+      // height: 10rem;
+      // flex: 1 1 10rem;
     }
   }
 
@@ -352,6 +358,8 @@
   height: 100%;
   visibility: visible;
 
+  transition: all 200ms ease;
+
   &__button-close {
     background-color: transparent;
     border: none;
@@ -361,14 +369,6 @@
     font-weight: 900;
     color: var(--about-text);
     cursor: pointer;
-
-    @include helper.bp(bp-750) {
-      font-size: var(--fs-220);
-    }
-
-    @include helper.bp(bp-500) {
-      font-size: var(--fs-200);
-    }
   }
 
   &__container {
@@ -376,8 +376,9 @@
     // max-width: 150rem;
 
     display: grid;
-    grid-template-rows: 0.5fr min-content 1.5fr min-content;
+    grid-template-rows: 0.5fr min-content 1.5fr 3rem;
     gap: 1rem;
+    overflow: auto;
   }
 
   &__heading-main {
@@ -398,10 +399,11 @@
       font-size: var(--fs-900);
     }
     @include helper.bp(bp-500) {
-      font-size: var(--fs-800);
+      // font-size: var(--fs-800);
     }
     @include helper.bp(bp-350) {
-      font-size: var(--fs-700);
+      font-size: var(--fs-800);
+      // font-size: var(--fs-700);
     }
   }
 
@@ -415,26 +417,29 @@
       font-size: var(--fs-220);
     }
     @include helper.bp(bp-500) {
-      font-size: var(--fs-200);
+      // font-size: var(--fs-200);
     }
     @include helper.bp(bp-350) {
-      font-size: var(--fs-180);
+      font-size: var(--fs-200);
+      // font-size: var(--fs-180);
     }
   }
 
   &__misc {
+    height: 60%;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(50rem, auto));
     align-self: center;
-    gap: 5rem 2rem;
+    gap: 1.5rem;
+    margin: 2rem 0;
 
-    @include helper.bp(bp-750) {
-      gap: 3rem;
+    @include helper.bp(bp-650) {
+      // gap: 3rem;
       grid-template-columns: auto;
     }
     @include helper.bp(bp-350) {
-      gap: 4rem;
+      // gap: 4rem;
     }
   }
 
@@ -460,10 +465,11 @@
       font-size: var(--fs-220);
     }
     @include helper.bp(bp-500) {
-      font-size: var(--fs-200);
+      // font-size: var(--fs-200);
     }
     @include helper.bp(bp-350) {
-      font-size: var(--fs-180);
+      font-size: var(--fs-200);
+      // font-size: var(--fs-180);
     }
   }
 
@@ -475,10 +481,11 @@
       font-size: var(--fs-200);
     }
     @include helper.bp(bp-500) {
-      font-size: var(--fs-180);
+      // font-size: var(--fs-180);
     }
     @include helper.bp(bp-350) {
-      font-size: var(--fs-160);
+      // font-size: var(--fs-160);
+      font-size: var(--fs-180);
     }
   }
 
@@ -501,7 +508,7 @@
       font-size: var(--fs-160);
     }
     @include helper.bp(bp-500) {
-      font-size: var(--fs-140);
+      // font-size: var(--fs-140);
     }
   }
 
@@ -522,7 +529,7 @@
   padding: 3rem;
   place-items: center;
 
-  transition: all 200ms;
+  transition: all 200ms linear;
 
   &__content {
     background: var(--modal-bg);
@@ -546,14 +553,6 @@
     font-weight: 900;
     font-size: var(--fs-250);
     cursor: pointer;
-
-    @include helper.bp(bp-750) {
-      font-size: var(--fs-220);
-    }
-
-    @include helper.bp(bp-500) {
-      font-size: var(--fs-180);
-    }
   }
 
   &__heading {
@@ -593,10 +592,10 @@
       font-size: var(--fs-180);
     }
     @include helper.bp(bp-500) {
-      font-size: var(--fs-160);
+      // font-size: var(--fs-160);
     }
     @include helper.bp(bp-350) {
-      font-size: var(--fs-140);
+      font-size: var(--fs-160);
     }
   }
 

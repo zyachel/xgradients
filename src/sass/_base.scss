@@ -27,10 +27,10 @@ html {
   scroll-behavior: smooth;
 
   @include helper.bp(bp-750) {
-    font-size: 58%;
+    // font-size: 58%;
   }
   @include helper.bp(bp-270) {
-    font-size: 52%;
+    // font-size: 52%;
   }
 }
 *,
