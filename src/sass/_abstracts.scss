@@ -146,6 +146,10 @@ $themed-vars: (
     light: color.scale($clr-primary, $lightness: 30%),
     dark: color.scale($clr-primary, $lightness: 60%),
   ),
+  focus: (
+    dark: color.scale($clr-primary, $lightness: 90%),
+    light: color.scale($clr-primary, $lightness: 5%, $saturation: 50%),
+  ),
 );
 
 $misc-vars: (
