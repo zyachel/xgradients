@@ -5,17 +5,27 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(name="description", content="A random gradient generator to give you inspiration for your next big project.")
-    link(rel="icon", href="../favicons/favicon.svg", type="image/svg+xml")
-    link(rel="icon", href="../favicons/favicon.png", type="image/png")
-    link(rel="stylesheet", href="../sass/main.scss")
-    script(src="../js/script.js", type='module', defer) 
+    link(rel="stylesheet", href="./../sass/main.scss")
+    script(src="./../js/script.js", type='module', defer) 
     title xgradients | create random gradients
+    //- favicon stuff
+    meta(name='theme-color', content='#fdf8fb')
+    meta(name='apple-mobile-web-app-title', content='xgradients')
+    meta(name='application-name', content='xgradients')
+    meta(name='msapplication-TileColor', content='#9f00a7')
+    meta(name='msapplication-config', content='../favicons/browserconfig.xml')
+    link(rel='shortcut icon', href='../favicons/favicon.ico')
+    link(rel='mask-icon', href='../favicons/safari-pinned-tab.svg', color='#a42a77')
+    link(rel='apple-touch-icon', sizes='180x180', href='../favicons/apple-touch-icon.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='../favicons/favicon-32x32.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='../favicons/favicon-16x16.png')
+    link(rel='manifest', href='../favicons/site.webmanifest')
   body.body 
     include _header
-    
+
     main.main
       include _sections
-    
+
     .modal.modal--hidden
       .modal__content
         button.modal__button-close &times;
